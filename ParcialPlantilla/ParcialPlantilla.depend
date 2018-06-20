@@ -1,0 +1,76 @@
+# depslib dependency file v1.0
+1529334051 source:c:\users\alumno\desktop\parcialplantilla\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1463604778 c:\users\alumno\desktop\parcialplantilla\arraylist.h
+
+1529334074 source:c:\users\alumno\desktop\parcialplantilla\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1528403366 c:\users\alumno\desktop\parcialplantilla\employee.h
+
+1529334030 source:c:\users\alumno\desktop\parcialplantilla\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+	"parser.h"
+
+1529334103 c:\users\alumno\desktop\parcialplantilla\parser.h
+
+1529334128 source:c:\users\alumno\desktop\parcialplantilla\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1529334052 source:c:\users\ayele\desktop\parcialplantilla\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1463604778 c:\users\ayele\desktop\parcialplantilla\arraylist.h
+
+1529534216 source:c:\users\ayele\desktop\parcialplantilla\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Employee.h"
+	"input.h"
+
+1529533697 c:\users\ayele\desktop\parcialplantilla\employee.h
+
+1529534113 source:c:\users\ayele\desktop\parcialplantilla\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+	"parser.h"
+	"input.h"
+
+1529334104 c:\users\ayele\desktop\parcialplantilla\parser.h
+
+1529531418 source:c:\users\ayele\desktop\parcialplantilla\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"ArrayList.h"
+	"Employee.h"
+	"input.h"
+
+1525258056 c:\users\ayele\desktop\parcialplantilla\input.h
+
+1526255469 source:c:\users\ayele\desktop\parcialplantilla\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
