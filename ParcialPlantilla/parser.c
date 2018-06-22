@@ -11,7 +11,6 @@ int parserEmployee(FILE* pFile, ArrayList* pArrayListEmployee)
     int fail1,fail2,fail3;
     Employee *emp;
 
-
     int cant;
     int returnAux = -1;
 
@@ -73,6 +72,7 @@ int parserEmployee(FILE* pFile, ArrayList* pArrayListEmployee)
                 }
 
                  pArrayListEmployee->add(pArrayListEmployee,emp);
+
                 returnAux = 0;
 
             }
@@ -82,12 +82,10 @@ int parserEmployee(FILE* pFile, ArrayList* pArrayListEmployee)
 
     }
 
-
-return returnAux;
+    fclose(pFile);
+    return returnAux;
 
 }
-
-
 
 
 

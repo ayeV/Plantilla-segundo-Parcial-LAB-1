@@ -233,6 +233,8 @@ int contract(ArrayList* pList,int index);
 
 // Private function
 int resizeUp(ArrayList* pList);
+int resizeDown(ArrayList* this);
+
 int expand(ArrayList* pList,int index);
 int contract(ArrayList* pList,int index);
 //___________________

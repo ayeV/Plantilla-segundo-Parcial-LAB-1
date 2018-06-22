@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "ArrayList.h"
 #include "Employee.h"
 #include "input.h"
@@ -8,7 +9,7 @@
 
 int employee_compare(void* pEmployeeA,void* pEmployeeB)
 {
-    int retorno = 0;
+    int retorno = -1;
     Employee* auxiliarA;
     Employee* auxiliarB;
 
@@ -24,7 +25,7 @@ int employee_compare(void* pEmployeeA,void* pEmployeeB)
 
              if(strcmp(auxiliarA->name,auxiliarB->name) < 0)
             {
-                retorno = -1;
+                retorno = 0;
             }
 
         }
@@ -37,7 +38,7 @@ void employee_print(Employee* this)
 {
     if(this !=NULL)
     {
-        printf("ID: %4d\tNAME: %16s\tLASTNAME: %16s\tISEMPTY: %4d\n",employee_getId(this), employee_getName(this), employee_getlastName(this), this->isEmpty);
+        printf("%4d\t %16s\t%16s\t%4d\n",employee_getId(this), employee_getName(this), employee_getlastName(this), this->isEmpty);
     }
 
 }
@@ -201,5 +202,138 @@ char* employee_getlastName(Employee* this)
 
 }
 
+
+void listarEmpleadosDesdeHasta(ArrayList* this, Employee* emp)
+{
+    int desde, hasta;
+    int i;
+    ArrayList* this2 = al_newArrayList();
+
+    if(this != NULL && emp != NULL)
+    {
+        getInt(&desde,"Ingrese ID desde donde quiere obtener la lista\n","Error, ingrese ID valido\n",0,this->len(this)-1);
+        getInt(&hasta,"Ingrese ID hasta donde quiere obtener la lista\n","Error, ingrese ID valido\n",desde+1,this->len(this));
+
+        this2 = this->subList(this,desde-1,hasta);
+        printf("Empleados desde %d hasta %d\n",desde,hasta);
+        printf("\n\n");
+        printf("ID\t\t  NOMBRE\t\t   APELLIDO\tISEMPTY\n");
+        for(i=0; i<this2->len(this)-1; i++)
+        {
+
+            emp = (Employee*)this->get(this2,i);
+            employee_print(emp);
+        }
+
+             /* for(i=desde-1; i<hasta; i++)
+            {
+
+                emp = (Employee*)this->get(this,i);
+                employee_print(emp);
+
+            }*/
+
+
+
+
+    }
+    else
+    {
+        printf("Ha ocurrido un error, se cierra el programa\n");
+        system("pause");
+        exit(1);
+    }
+
+
+}
+
+void cargarEmpleado(ArrayList* this, Employee* emp)
+{
+   // Employee* aux;
+    char name[100],lastName[100];
+    int i;
+
+
+    emp = employee_new();
+    getString(name,"Nombre: ","Error ingrese nombre valido",2,50);
+    strcpy(emp->name,name);
+    getString(lastName,"Apellido: ","Error ingrese apellido valido",2,50);
+    strcpy(emp->lastName,lastName);
+    for(i=0;i<=this->len(this);i++)
+    {
+        emp->id = i+1; //id autoincremental
+    }
+
+    emp->isEmpty = 1;
+
+    this->add(this,emp);
+    printf("Datos del empleado agregado: \n");
+    printf("ID\t\t  NOMBRE\t\t   APELLIDO\tISEMPTY\n");
+
+    employee_print(emp);
+
+
+}
+
+void deleteEmployee(ArrayList* this, Employee* emp)
+{
+    int id;
+    char opc;
+
+    if( this != NULL && emp != NULL)
+    {
+        getInt(&id,"ingrese el ID del empleado a eliminar","Error usuario no existente",0,this->size);
+
+        do
+        {
+            printf("Confirma la baja? S/N\n");
+            fflush(stdin);
+            scanf("%c", &opc);
+            opc = tolower(opc);
+        }while(opc != 's' && opc != 'n');
+        if(opc == 's')
+        {
+            emp=(Employee*)this->pop(this,id-1);
+            printf("Empleado eliminado: \n");
+            employee_print(emp);
+            system("pause");
+
+        }
+        else
+        {
+            printf("Se ha cancelado la baja\n");
+        }
+
+
+    }
+
+
+}
+
+void guardarArchivo(ArrayList* this, Employee* emp)
+{
+    FILE* f;
+
+    int cantidad;
+
+    f = fopen("data.csv", "wb");
+    if(f != NULL)
+    {
+        cantidad = this->len(this);
+
+        fwrite(emp,sizeof(Employee),cantidad,f);
+
+
+        fclose(f);
+
+        printf("Archivo guardado con exito\n\n");
+    }
+    else
+    {
+        printf("error al guardar el archivo\n");
+    }
+
+
+}
 
 

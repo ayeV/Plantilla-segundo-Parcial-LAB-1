@@ -31,27 +31,30 @@
 	"ArrayList.h"
 	"Employee.h"
 
-1529334052 source:c:\users\ayele\desktop\parcialplantilla\arraylist.c
+1529688937 source:c:\users\ayele\desktop\parcialplantilla\arraylist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"ArrayList.h"
 
-1463604778 c:\users\ayele\desktop\parcialplantilla\arraylist.h
+1529688630 c:\users\ayele\desktop\parcialplantilla\arraylist.h
 
-1529534216 source:c:\users\ayele\desktop\parcialplantilla\employee.c
+1529697136 source:c:\users\ayele\desktop\parcialplantilla\employee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<ctype.h>
 	"ArrayList.h"
 	"Employee.h"
 	"input.h"
 
-1529533697 c:\users\ayele\desktop\parcialplantilla\employee.h
+1529697141 c:\users\ayele\desktop\parcialplantilla\employee.h
 
-1529534113 source:c:\users\ayele\desktop\parcialplantilla\main.c
+1529697131 source:c:\users\ayele\desktop\parcialplantilla\main.c
 	<stdio.h>
 	<stdlib.h>
+	<conio.h>
+	<ctype.h>
 	"ArrayList.h"
 	"Employee.h"
 	"parser.h"
@@ -59,7 +62,7 @@
 
 1529334104 c:\users\ayele\desktop\parcialplantilla\parser.h
 
-1529531418 source:c:\users\ayele\desktop\parcialplantilla\parser.c
+1529697028 source:c:\users\ayele\desktop\parcialplantilla\parser.c
 	<stdio.h>
 	<stdlib.h>
 	"string.h"

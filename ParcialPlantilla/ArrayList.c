@@ -453,7 +453,7 @@ void* al_pop(ArrayList* this,int index)
  * \return int Return (NULL) if Error [pList is NULL pointer or invalid 'from' or invalid 'to']
  *                  - ( pointer to new array) if Ok
  */
-ArrayList* al_subList(ArrayList* this,int from,int to)
+/*ArrayList* al_subList(ArrayList* this,int from,int to)
 {
 
     ArrayList* returnAux = NULL;
@@ -470,8 +470,6 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
             while( returnAux->reservedSize < returnAux->len(returnAux))
             {
                 returnAux->reservedSize = returnAux->reservedSize + AL_INCREMENT;
-
-
                 returnAux->pElements =(void*) malloc(sizeof(void*)* this->reservedSize);
                 if(returnAux->pElements != NULL)
                 {
@@ -489,6 +487,24 @@ ArrayList* al_subList(ArrayList* this,int from,int to)
 
     }
 
+    return returnAux ;
+}*/
+
+ArrayList* al_subList(ArrayList* this,int from,int to)
+{
+    ArrayList* returnAux = NULL;
+    int i;
+    if(this != NULL && from >= 0 && from < to && to <= this->len(this)&& from<this->len(this))
+    {
+        returnAux = al_newArrayList();
+
+        for (i=from; i<to; i++)
+        {
+
+            returnAux->add(returnAux,this->get(this,i));
+
+        }
+    }
     return returnAux ;
 }
 

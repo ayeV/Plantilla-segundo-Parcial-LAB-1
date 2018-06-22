@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
+#include <ctype.h>
+
 #include "ArrayList.h"
 #include "Employee.h"
 #include "parser.h"
@@ -20,6 +23,7 @@ int main()
 {
     int opcion = 0;
     char seguir = 's';
+    char guardar= 's';
     int i;
 
     Employee *employee;
@@ -46,21 +50,22 @@ int main()
         {
         case 1:
 //pArch uninitalized PREGUNTAR
-          if(  parserEmployee(pArch,lista) == 0)
-          {
-              printf("Parser exitoso\n");
-          }
-          else
-          {
-              printf("error\n");
-          }
+            if(  parserEmployee(pArch,lista) == 0)
+            {
+                printf("Parser exitoso\n");
+            }
+            else
+            {
+                printf("error\n");
+            }
             system("pause");
 
             break;
         case 2:
 
             printf("--LISTAR EMPLEADOS--\n");
-            for(i=0;i<lista->len(lista);i++)
+            printf("ID\t\t  NOMBRE\t\t   APELLIDO\tISEMPTY\n");
+            for(i=0; i<lista->len(lista); i++)
             {
                 employee = (Employee*)lista->get(lista,i);
                 employee_print(employee);
@@ -73,7 +78,7 @@ int main()
             printf("--ORDENAR POR NOMBRE--\n");
             lista->sort(lista,employee,employee_compare,1);
 
-            for(i=0;i<lista->len(lista);i++)
+            for(i=0; i<lista->len(lista); i++)
             {
                 employee = (Employee*)lista->get(lista,i);
                 employee_print(employee);
@@ -83,20 +88,39 @@ int main()
             system("pause");
             break;
         case 4:
-
+            cargarEmpleado(lista,employee);
 
             system("pause");
             break;
         case 5:
-
+            deleteEmployee(lista,employee);
+            system("pause");
             break;
         case 6:
-
+            listarEmpleadosDesdeHasta(lista,employee);
+            system("pause");
             break;
         case 7:
+               /* printf("\nGuardar cambios S/N ?: ");
+				guardar = tolower(getche());
+
+				if(guardar == 's')
+				{
+				    cant = lista->len(lista);
+					guardarArchivo(lista,employee);
+
+                }
+                else
+                {
+                    printf("Ha cancelado guardar\n");
+                }*/
 
 
             seguir = 'n';
+            break;
+        default:
+            printf("Opcion invalida\n");
+            system("pause");
             break;
         }
     }
